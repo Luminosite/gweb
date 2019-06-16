@@ -1,0 +1,81 @@
+/* 重置样式 */
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+
+/* 全局样式 */
+body {background-color: #f7f7f7;color: #555;font-size: 14px;margin: 0 auto;max-width:100%;/*max-width: 640px;*//*font-family: "微软雅黑",Microsoft Yahei;*/font-family:"微软雅黑",helvetica,arial}
+a{color:gray;}
+/* 公共函数 */
+.f-clear{clear:both;}
+
+/* 字体响应式 */
+@media only screen and (max-width:310px) and (min-width:300px){body{font-size:10px}}
+@media only screen and (max-width:320px) and (min-width:310px){body{font-size:10px}}
+@media only screen and (max-width:360px) and (min-width:320px){body{font-size:12px}}
+@media only screen and (max-width:360px) and (min-width:350px){body{font-size:12px}}
+@media only screen and (max-width:480px) and (min-width:360px){body{font-size:14px}}
+@media only screen and (max-width:480px) and (min-width:470px){body{font-size:14px}}
+@media only screen and (max-width:560px) and (min-width:480px){body{font-size:16px}}
+@media only screen and (max-width:570px) and (min-width:560px){body{font-size:16px}}
+@media only screen and (max-width:640px) and (min-width:570px){body{font-size:18px}}
+@media only screen and (max-width:640px) and (min-width:630px){body{font-size:18px}}
+@media only screen and (max-width:2048px) and (min-width:640px){body{font-size:18px}}
+
+/* 头部 */
+.g-hd{/*height:3.7em;*/ position:relative;}
+/* LOGO */
+.m-logo{margin:0.4em 0;float:left;}
+.m-logo img{height:2.9em; width:auto; display:block;}
+
+/* 头部右侧 */
+.m-hd-right a{float:right;width:3.7em;height: 3.7em;position: relative;}
+.m-hd-right a span{width: 2em;height: 1.75em;background: url(../img/png.png) no-repeat;background-size:17em;position: absolute;top: 50%;left: 50%;margin: -0.89em 0 0 -1em;}
+.m-hd-right a span.u-hd-cart{background-position: -0.17em -3em;}
+.m-hd-right a span.u-hd-user{background-position: -0.17em -0.42em;}
+.m-hd-right a span.u-hd-search{background-position: -2.17em -0.45em;}
+
+/* 模块风格一 */
+.m-default {padding:0; overflow: hidden; margin-top:10px; background:none;   border-top:none;}
+.m-default .m-wg-hd{padding: 0.2em 0.5em 0 0; background: -webkit-gradient(linear,left top, left bottom,from(#FFFFFF), to(#DCDCDC)); background: -o-linear-gradient(top, #FFFFFF, #DCDCDC); background: -moz-linear-gradient(top, #FFFFFF, #DCDCDC); background: linear-gradient(top, #FFFFFF, #DCDCDC);border-bottom:1px solid #ADADAD; height:38px; /*margin-bottom:10px;*/}
+.m-default .m-wg-hd h2{ padding:6px 10px 8px 15px; font-size:16px;  letter-spacing:2px; border-left:none;text-shadow: 1px 1px 0 #441307;   font-family: "Microsoft Yahei"; float:left;}
+.m-default .m-wg-hd a{float:right; font-size:12px; margin-top:10px;}
+
+/* 底部 */
+.m-ft {/*margin-bottom:20px;*/}
+.m-ft ul {overflow: hidden;overflow: auto;padding: 0.5em 0;margin-bottom:10px;}
+.m-ft ul li {text-align: center;height:2em;line-height: 2em;font-size: 1.17em;width: 25%;float: left;overflow:hidden;}
+.m-ft p {line-height: 1.5;text-align: center;}
+.m-ft p span{margin-right:20px;}
+
+.m-ft-login{line-height:1.5em;padding:0.5em 0;border-bottom:#cdcdcd 1px solid;}
+.m-ft-log-link{width:60%;margin-left:2em;float:left;display:inline;}
+.m-gotop{width:23%;text-align:right;margin-right:2em;float:right;}
+
+/* 导航 */
+.m-nav{position:relative; width:100%; margin:0 auto;z-index:2;max-height:6em; line-height:3em; overflow:hidden;}
+.m-nav ul{margin:0 auto;}
+.m-nav ul li{position:relative;float:left; height:3em; font-weight: normal;line-height: 3em; }
+.m-nav ul li a{float: left; text-align: center; height:3em;line-height: 3em;color:#fff;padding:0 1em;}
+.m-nav ul li a:hover{ color:#fff;text-decoration:none;}
+.m-nav ul li ul {*z-index:4; position:absolute;top:3em;left:0px;visibility: hidden;/*width:10em;*/}
+.m-nav ul li ul.last {left:-6em;}
+.m-nav ul li ul li a{padding:0;}
+.m-nav ul li ul li ul {top:0px;left:10em;}
+.m-nav ul li ul.last li ul{left:-10em;width:10em;}
+.m-nav ul ul li {width:10em;padding:0;}
+.m-nav ul ul li a{width:10em;display:block;margin:0 auto;text-align:center;}

@@ -1,0 +1,17 @@
+.m-headerNav{text-align: center;line-height: 50px;left: 0;right: 0;top: 0;}
+.headerNav-content{position: relative;}
+.headerNav-title{display:block;}
+.headerNav-img{width:30px;height:100%;position:absolute;top:50%;margin-top:-25px;background: url(../navtheme30/img/meun.png) no-repeat center center;background-size: 30px 24px;}
+.headerNav_hide{width:55%;padding-top:1%;text-align: left;background: #404248;overflow:auto;display: none;}
+.headerNav_hide li {vertical-align: middle;border-bottom: 1px solid #4a4d54;}
+.headerNav-li-img{height:4.2em;line-height: 4.2em;float: left;margin-left:9%;}
+.headerNav_hide li .hide_a{width:55%;height:4.2em;line-height:4.2em;color:#fff;display:block;margin-left: 6%;float: left;font-size:14px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.headerNav_hide li img{width:1.5em;height: 1.5em;vertical-align: middle;}
+.headerNav-jt{width:1.5em;height:4.2em;vertical-align:middle;margin-right:5%;float:right;background: url(img/nav-jt.png)no-repeat center center;background-size: 12px 12px;}
+
+
+.headerNav_hide .showOrHide{opacity:0;transform:translateX(-18em);transition: 0.7s}
+.showOrHide_a{display: block;height: 100%;font-size: 14px !important;}
+
+/*.plug-div .plug-phone_dfse{position: relative;}*/
+

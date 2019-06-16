@@ -1,0 +1,479 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		<!-- 页面编码 -->
+	<meta charset="utf-8" />
+	<!-- 页面的标题，关键词，描述 -->
+	<title>学习生活本一体，丝缕之间有关联 -亲子教育-文 章-某某心理咨询中心</title>
+	<meta name="keywords" content="学习生活本一体，丝缕之间有关联 ,亲子教育-文 章,某某心理咨询中心" />
+	<meta name="description" content="在学校心理健康教育辅导过程中，把自己在教学一线的切身体会和心理教育工作理念相结合，努力践行现代人本主义心理学的理念，积极地把心理辅导工作的开展与学生的发展相适应，甚至主动考虑应该比学生的发展早一步才能更好的发挥作用。
+人本主义心理学的理念" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+	
+		
+			<link rel="stylesheet" type="text/css" href="static/newmobile/common/css/modules.css" />
+		<link rel="stylesheet" type="text/css" href="static/newmobile/model9/common/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="static/newmobile/model9/red/css/style.css" />
+					<script type="text/javascript" src="../v3.qiyuntong.com/mj/vall/1.js"></script>
+		
+			
+	
+	
+
+	<script type="text/javascript">
+		$(function() {
+			$("img.lazyload").lazyload({effect: "fadeIn",skip_invisible:false});
+		});
+
+			</script>
+</head>
+<script>
+$(function(){
+	$('#aa').on('click',function(){
+		$('.mark').show();
+		$('body').css('overflow','hidden');
+		$('.mx_search').show();
+	});
+	$('.mx_search').find('.close').on('click',function(){
+		$('.mark').hide();
+		$('body').css('overflow','auto');
+		$('.mx_search').hide();
+	});
+});
+</script>
+<style>
+.mark{width:100%;height:100%;position:absolute;top:0;left:0;z-index:9999;display:none;background:#eeeeee;/*background:#f4f5f7;*/}
+.mx_search{position:absolute;left:0;top:0;width:100%;height:50px;border-bottom:1px solid #c6c6c6;background:#f9f9f9;display:none;z-index:99999;}
+.mx_search form *{float:left;}
+.mx_search input{outline:none;}
+.mx_search .close{width:10%;height:50px;line-height:50px;font-size:16px;color:#666;text-align:center;}
+.mx_search .text{width:70%;height:30px;background:#e5e7e4;border-radius:3px;border:none;margin:10px auto 0;font-size:14px;color:#333;padding:0 10px;box-sizing:border-box;}
+.mx_search .submit{width:20%;height:30px;border:none;background:#f9f9f9;font-size:16px;color:#333;margin-top:10px;}
+</style>
+<body>
+<!-- 遮罩层 -->
+<div class="mark"></div>
+<div class="mx_search">
+	<form action="/search.php" method="get">
+		<span class="close">&times;</span>
+		<input type="text" name="s" value="" placeholder="搜索输入框" autocomplete="off" class="text" />
+		<input type="submit" value="搜索" class="submit" />
+	</form>
+</div>
+<script type="text/javascript" src="static/js/layer/mobile/layer.js"></script>
+<script type="text/javascript" src="static/js/scrollReveal.js"></script>
+
+<!--头部嵌入-->
+<div class="header_embed">
+	</div>
+
+<style>
+.m-ft{width:100%; min-height:80px;background: url(../cdn053.yun-img.com/static/upload/a00722y/focus/20180418161235_55191.jpg) repeat top left;}
+</style>
+
+<style>
+/*悬浮透明头部置顶*/
+.m-header-fixed{width:100%;height:50px;font-size: 12px;background: rgba(0,0,0,0.5);position: relative;position: fixed;z-index: 999;}
+.m-header-fixed .m-photo{width: 14.2%;height:44px;background: #fff;overflow:hidden;position: absolute;left:2%;top:6%;border-radius: 50%;}
+.m-header-fixed .m-photo img{width: 100%;height: 50px;}
+.m-header-fixed span{width:50%;height:80%;line-height:20px;margin-top:3%;margin-left:17%;color:#fff;letter-spacing:1px;display: inline-block;overflow: hidden;}
+.m-header-fixed span em{color: #F69F83;}
+.m-header-fixed a{background: #FF6634;color: #fff;font-size: 14px;padding: 6% 6%;border-radius: 5px;display: inline-block;}
+.m-header-fixed i {padding:3% 6%;margin-left:3%;color:#fff;background: #6A6A6A;border-radius:50%;}
+.m-header-fixed .fixed-right{width:30%;height:100%;position: absolute;right: 0;top: 16%;}
+</style>
+
+<!--悬浮头部-->
+<script>
+	$(window).scroll(function(){
+		if($(window).scrollTop()>=50){
+			$('.m-header-fixed').css("display","none");
+		}
+	});
+	$(".fx_applyd").click(function(){
+		$.ajax({
+			url: 'account/fenxiao.php@type=register',
+			success:function(data){
+			layer.open({
+				type: 1
+				,content: data
+				,anim: 'up'
+				,style: 'position:fixed; bottom:0; left:0; width: 100%; height: 400px; padding:10px 0; border:none;'
+			});
+			ExecuteJs(data);
+			}
+		});
+	});
+	function ExecuteJs(data){
+		var regDetectJs = /<script(.|\n)*?>(.|\n|\r\n)*?<\/script>/ig;
+		var jsContained = data.match(regDetectJs);
+		if(jsContained) {
+			// 分段取出js正则
+			var regGetJS = /<script(.|\n)*?>((.|\n|\r\n)*)?<\/script>/im;
+			// 按顺序分段执行js
+			var jsNums = jsContained.length;
+			for (var i=0; i<jsNums; i++) {
+				var jsSection = jsContained[i].match(regGetJS);
+				if(jsSection[2]) {
+					if(window.execScript) {
+						// IE
+						window.execScript(jsSection[2]);
+					} else {
+						// 其他浏览器
+						window.eval(jsSection[2]);
+					}
+				}
+			}
+		}
+	}
+	$(function(){
+		$('.m-header-off').click(function(){
+			$('.m-header-fixed').css('display','none');
+		});
+	});
+		</script>
+<div class="g-document">
+<!-- 头部start -->
+<header class="g-hd" id='header'>
+<div class="g-hd-outer">
+<div class="g-hd-inner g-hd-limit g-hd-edit">
+	<!-- 头部自定义模块 -->
+				<!-- 头部自定义模块 end -->
+	<!-- 头部LOGO -->
+		<div class="m-logo"  id="set_logo"  style="position:relative;top:NaNpx;left:0%;">
+		<a href="default.htm"><img src="../cdn043.yun-img.com/static/upload/a00722y/logo/20180418170637_48773.png"  style=""></a>
+	</div>
+		<!-- 头部右侧start -->
+	<div class="m-hd-right">
+			
+			<a href="account/mobile_center.php" class="set_user"><span class="u-hd-user"  id="set_user"></span></a>
+							</div>
+	<!-- 头部右侧end -->
+	<div class='f-clear'></div>
+</div>
+<div class='f-clear'></div>
+<div class='f-clear'></div>
+</div>
+</header>
+<!-- 头部end --><link href="../css1.sendong.com/mobile/default/default/style.css" rel="stylesheet" type="text/css"/><style type='text/css'>
+.msDmt_clsere {
+	overflow:hidden;
+	position: relative;
+}
+.msDmt_clsere img {
+	max-width: 100%;
+}
+.msDmt_clsere ol{
+	list-style: decimal;
+}
+.msDmt_clsere ol li{
+	list-style: decimal;
+}
+.msDmt_clsere li{
+	list-style: initial;
+	margin-left: 20px;
+}
+	
+/* 图片响应式 */
+@media only screen and (max-width:327px) and (min-width:301px){
+	.msDmt_con1time{font-size: 10px;}
+}
+@media only screen and (max-width:360px) and (min-width:328px){
+	.msDmt_con1time{font-size: 11px;}
+}
+@media only screen and (max-width:413px) and (min-width:361px){
+	.msDmt_con1time{font-size: 12px;}
+}	
+
+/*评论部分的样式处理*/
+.mx_xp_ul{height:30px;}
+.mx_xp_ul li{float:left;width:24%;line-height: 28px;text-align: center;border-top: 4px solid #0F0;}
+.mx_xp_ul .active{border-top: 4px solid #F00;color:#F00;}
+#p_content{width:100%;height:80px;}
+.submit_div{font-size: 12px;}
+.submit_div input{font-size: 12px;}
+.mx_xp_div{margin-top: 2PX}
+.mx_ping_t img{width:20px;height:20px;}
+.mx_ping_t span{color:#00F;font-size: 12px;}
+.mx_ping_t span i{color:#ccc}
+.mx_ping_t p {padding-left: 20px;}
+.mx_ping_b{padding-left: 6%;}
+.mx_ping_b span{color:#00F;font-size: 12px;}
+.mx_ping_b span i{color:#ccc}
+.mx_ping_b p{color:#ff6600;}
+</style> 
+<div style="clear:both"></div>
+<section class="sDt_content">
+	<div style="overflow:hidden;height:34px">
+		
+	</div>
+	
+	<div class="msDmt_new-search">
+		   <ul class="msDmt_radius">
+		 	<li>
+			<strong>学习生活本一体，丝缕之间有关联 </strong></li>
+            <li  class="msDmt_last"><div class="msDmt_con1time">2018年04月18日14:35:05&nbsp;&nbsp;&nbsp;作者：Admin&nbsp;&nbsp;&nbsp;点击数:127</div>
+									<div class="msDmt_clsere"><div style="color:#333333;font-size:14px;line-height:1.8em;text-indent:2em;letter-spacing: 2px;"><p>在学校心理健康教育辅导过程中，把自己在教学一线的切身体会和心理教育工作理念相结合，努力践行现代人本主义心理学的理念，积极地把心理辅导工作的开展与学生的发展相适应，甚至主动考虑应该比学生的发展早一步才能更好的发挥作用。
+人本主义心理学的理念不仅是时下的积极心理的理论基础，更是与学校培育全面发展优生的教学新思路吻合。简洁表达，就是工作理念：由着重对学生产生心理干扰的事后辅导调适治疗，转向常规的心理健康普及和学习过程中的认知提升，进一步在学习力的培养、认知能力引导上下功夫，在心理辅导与学科渗透上多理解，用整合的方式真正落实“助人自助”的基本原则。</p><p>在学校心理辅导过程中，依理念、遵章法、运技巧、用真诚，秉承人本情怀，不仅能够有效及时的帮助到来访同学，更可以促使咨询效果深化到生活的其他方面，也可以帮助咨询师褪下急切助人的华美外衣，真正意义上做到陪伴、呵护、守望，信任、祝福、静待花开。</p><p></p></div></div>
+						</li>
+		 
+		 </ul>
+		 
+		 <div class='m-toolbar u-nobottom'>
+			<p>
+								
+								上一条：<a href="newsdetail_929108.html">你的付出，要遇上对的人</a>
+					 
+					
+			</p>
+
+			<p>
+									下一条：<a href="newsdetail_931499.html">《提高大脑记忆力》教学案例</a>
+									</p>
+			
+			<div style="min-height:79px;margin-top:15px;">
+				<div class='f-clear'>
+					<!-- 新增评论区域start -->
+	    			<div class="mx_xp" >
+	    			    <ul class="mx_xp_ul">
+	    			        <li class="active">发表评论</li>
+	    			        <li class="none_left">查看评论</li>
+	    			    </ul>
+
+	    			    <div class="mx_xp_div mx_xp_xq">
+	    			        <textarea name="content" id="p_content"></textarea>
+	    			        <input type="hidden" name="id" value="931498" id="pid">
+	    			        <input type="hidden" name="category" value="N" id="p_cate"/>
+	    			            <div class="submit_div">
+	    			                文明上网理性发言，请遵守评论服务协议。
+	    			                <input type="submit" class="submit" id="pro_add" value="发表评论" >
+	    			            </div>
+	    			    </div>
+	    			    
+	    			    <div class="mx_xp_div" style="display:none;">
+	    			        <ul class="mx_xp_ping">
+                					    			        </ul>
+	    			        <div class="mx_fenye" style="display:none;">
+                                <input type="hidden" name="curpage" id="curpage" value="1">
+                                                                <span class="de" id="first">首页 </span>
+                                <span class="de" id="prev">上一页 </span>
+                                <span class="po" id="next">下一页</span> 
+                                <span class="po" id="last">尾页</span>
+                                	    			        </div>
+	    			    </div>
+	    			</div>
+		
+	    			<!-- 新增评论区域end -->
+					<div class='f-clear'></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+<div style="clear:both"></div>
+<script type="text/javascript" src="static/js/commentcate.js"></script>
+<!-- 底部start -->
+<footer class="m-ft g-ft-edit">
+	<div class='m-ft-login'>
+						<span id='set_userbox'>
+				<span class='m-ft-log-link'><a href='account/shop_login.php'>登录</a> &nbsp;&nbsp; <a href='account/shop_signup.php'>注册</a></span>
+				</span>
+								<span id='set_gotop' class='m-gotop' ><a href='#header'>返回顶部</a></span>
+				<div style='clear:both;'> </div>
+	</div>
+	
+	<!-- 脚部自定义模块 -->
+		<div class="m-ft-foothtmlWrap" id="set_foothtml" >
+		<div class="m-ft-foothtml" {"width":"1000px","height":"54px"}>
+		<div class='m-foothtml-ct'><style>
+.m-ft a {
+    color: #fff;margin-bottom:5px;}
+.m-ft-login {border-bottom: 0px solid #8d0101;
+background:#ffcc00;}
+</style></div>
+		</div>
+	</div>
+		<!-- 脚部自定义模块 end -->
+	<!-- 底部菜单start -->
+		<!-- 底部菜单end -->
+		<p  id="set_address" >
+	<span>北京市海淀区中关村东路105号A塔2201室&nbsp;&nbsp;&nbsp;</span>
+	</p>
+		
+	<p>
+				<span id="set_copyright" >copyright ©2012</span>
+								<span id="set_telphone" >010-22228888</span>
+			</p>
+	
+	</footer>
+<!-- 底部end -->
+<!-- 底部插件注入区 -->
+
+ <link rel="stylesheet" href="static/css/sidenav/m/theme2/yellow.css"> 
+ 	<style>
+.plug-div .icon_wswd{-webkit-background-size:20px auto;-o-background-size:20px auto;height:24px;margin:2px auto 0;display:block;width:100%; text-align:center;}
+.plug-div,.plug-phone_dfse{height:50px;}
+.plug-div .plug-phone_dfse{  position:fixed; z-index:900; bottom:0; left:0; right:0; margin:auto; display:block; width:100%; overflow:hidden; display:-webkit-box; display:box; -webkit-box-orient:horizontal; }
+.plug-div .plug-phone_dfse div{ width:auto!important; height:100%; position:static!important; margin:0; border-radius:0!important; -webkit-box-sizing:border-box; box-sizing:border-box; -webkit-box-flex:1; box-flex:1; -webkit-box-sizing:border-box; overflow:hidden; box-shadow:none!important; background:none;}
+.plug-div .plug-phone_dfse div a{display:block;width:100%;height:100%;text-decoration:none;}
+.plug-div .plug-phone_dfse div .title,.plug-phone_dfse .title{line-height:22px;font-size:16px; font-weight:bold; text-align:center;width:100%;margin:0 auto; text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.icon_wswd { speak: none; font-weight: normal; font-variant: normal; text-transform: none; -webkit-font-smoothing: antialiased;color: #fff; margin: 0 auto; font-size: 20px; display: inline-block; width: 30px; height: 100%; text-align: center; float: left; -webkit-background-size: 20px auto; -o-background-size: 20px auto; background-position: center; background-repeat: no-repeat; margin-right: 5px;}
+.icon_wswd img{ margin:0 auto; width:20px;}
+	</style>
+
+	<script type="text/javascript" src="../api.map.baidu.com/api@v=2.0&ak=2Ob1Cq4Ox2VLz1Dz1SHoHyjhECGsNWPr"></script>
+<script type="text/javascript">
+var addr = '北京市海淀区中关村东路105号A塔2201室';//获取地址信息
+var title = '某某心理咨询中心';//获取公司名称
+var latitude= '';
+var longitude= '';
+
+var myGeo = new BMap.Geocoder();
+myGeo.getPoint(addr, function(point){
+    if (point) {
+        // alert("../api.map.baidu.com/marker@location="+point.lat+","+point.lng+"&title="+decodeURIComponent(title)+"&content="+decodeURIComponent(addr)+"&output=html");
+        $('#GoMap').attr('href',"../api.map.baidu.com/marker@location="+point.lat+","+point.lng+"&title="+decodeURIComponent(title)+"&content="+decodeURIComponent(addr)+"&output=html");
+    } else {
+        $('#GoMap').attr('href',"../api.map.baidu.com/marker@location=113.30765, 23.120049"+"&title="+decodeURIComponent(title)+"&content="+decodeURIComponent(addr)+"&output=html");
+    }
+});
+
+</script>
+	
+	<div class="plug-div">
+		<div class="plug-phone_dfse">
+						<div>
+			          	<a href="tel_3A010-22228888" data-ajax="false" >
+				<i class="icon_wswd"><img src="static/img/bm_s1.png" width="20" height="20" /></i>
+				<p class="title">电话</p>
+          	</a>
+			          </div>
+		  		  				<div>
+						<a href="default.htm" id='GoMap' data-ajax="false" >
+				<i class="icon_wswd"><img src="static/img/bm_s3.png" width="20" height="20" /></i>
+				<p class="title">地图</p>
+          	</a>
+			          </div>
+		  		  				<div>
+																			<a href="message.html" data-ajax="false" >
+					<i class="icon_wswd"><img src="static/img/bm_s2.png" width="20" height="20" /></i>
+					<p class="title">留言</p>
+				</a>
+							          </div>
+		  		  				<div>
+														  <div>
+								<a href="account/shop_login.php" data-ajax="false">
+									<i class="icon_wswd"><img src="static/img/bm_s5.png" width="20" height="20" /></i>
+					<p class="title">推广</p>
+				</a>
+			  </div>
+												<a href="../account/fenxiao.php@type=fx_apply" data-ajax="false" >
+					<i class="icon_wswd"><img src="static/img/bm_s5.png" width="20" height="20" /></i>
+					<p class="title">我要分销</p>
+				</a>
+							          </div>
+		  		  				<div>
+																			<a href="account/mobile_center.php" data-ajax="false" >
+					<i class="icon_wswd"><img src="static/img/bm_user.png" width="20" height="20" /></i>
+					<p class="title">用户中心</p>
+				</a>
+							          </div>
+		  		  	</div>
+	</div>
+<!-- ios fixed兼容 -->
+<style>
+.plug-div .pos-rel { position: relative;}
+</style>
+<script>
+    $(function() {
+        var isIOS = (/iphone|ipad/gi).test(navigator.appVersion);
+
+        if (isIOS) {
+            $('.g-document').on('focus','input', function () {
+                $('.plug-div .plug-phone_dfse').addClass('pos-rel');
+            }).on('focusout', 'input', function () {
+                $('.plug-div .plug-phone_dfse').removeClass('pos-rel');
+             });
+              $('.g-document').on('focus','textarea', function () {
+                $('.plug-div .plug-phone_dfse').addClass('pos-rel');
+            }).on('focusout', 'textarea', function () {
+                $('.plug-div .plug-phone_dfse').removeClass('pos-rel');
+             });
+        }
+    });
+</script>
+<!-- ios fixed兼容 end-->	
+<script>
+$("#fx_apply").click(function(){
+	$.ajax({
+		url: 'account/fenxiao.php@type=register',
+		success:function(data){
+		layer.open({
+			type: 1
+			,content: data
+			,anim: 'up'
+			,style: 'position:fixed; bottom:0; left:0; width: 100%; height: 400px; padding:10px 0; border:none;'
+		});
+		ExecuteJs(data);
+		}
+	});
+});
+
+function ExecuteJs(data){
+	var regDetectJs = /<script(.|\n)*?>(.|\n|\r\n)*?<\/script>/ig;
+	var jsContained = data.match(regDetectJs);
+
+	if(jsContained) {
+		// 分段取出js正则
+		var regGetJS = /<script(.|\n)*?>((.|\n|\r\n)*)?<\/script>/im;
+
+		// 按顺序分段执行js
+		var jsNums = jsContained.length;
+		for (var i=0; i<jsNums; i++) {
+			var jsSection = jsContained[i].match(regGetJS);
+
+			if(jsSection[2]) {
+				if(window.execScript) {
+					// IE
+					window.execScript(jsSection[2]);
+				} else {
+					// 其他浏览器
+					window.eval(jsSection[2]);
+				}
+			}
+		}
+	}
+}
+</script>
+<style>
+	body{
+		background: url("../cdn043.yun-img.com/static/upload/a00700t/focus/20180208143349_69564.png") repeat scroll left top rgba(0, 0, 0, 0);
+		background-size:contain;
+	}
+</style>
+
+<style type='text/css'>
+.m-demo-sitetips {line-height: 30px;font-size: 14px;color: #000;text-align: center;position: fixed;left: 0;top: 0;z-index: 10000;width: 100%;min-height: 30px;_height: 30px;max-height:60px;border-bottom: 0;border-bottom: 1px solid #d8d8d8 \9;margin: 0;padding: 0;background: #fff;-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.2);-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.2);box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
+.m-demo-sitetips .m-demo-keepcenter {max-width: 100%;min-width: 320px;min-height: 30px;_height: 30px;max-height:60px;line-height: 30px;margin: 0 auto;position: relative;}
+.m-demo-sitetips .m-demo-tiptext {/*float: left;*/}
+.m-demo-sitetips .m-demo-tiptext span {color: #666;_float:left;}
+.m-demo-red{color:red;}
+</style>
+<div class='m-demo-sitetips'><div class='m-demo-keepcenter'><div class='m-demo-tiptext'><span>本网站为<b class='m-demo-red'>【演示站点】</b>的模板，只用于展示网站模板的效果，所有内容均属虚构，如有雷同，纯属巧合。</span></div></div></div>
+<script type='text/javascript'>
+$(document).ready(function(){
+	$("<div style='min-height: 30px;_height:30px;max-height:60px;' class='m-demo-replace'></div>").prependTo("body");
+	$('.m-demo-replace').height($('.m-demo-tiptext').height());
+});
+</script>
+<script>
+  window.scrollReveal = new scrollReveal();
+</script>
+</div>
+</body>
+</html>

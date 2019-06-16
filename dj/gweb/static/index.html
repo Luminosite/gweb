@@ -1,0 +1,839 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+		<!-- 页面编码 -->
+	<meta charset="utf-8" />
+	<!-- 页面的标题，关键词，描述 -->
+	<title>某某心理咨询中心-某某心理咨询中心</title>
+	<meta name="keywords" content="关键词1,关键词2,关键词3" />
+	<meta name="description" content="某某心理咨询中心-某某心理咨询中心" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+	
+		
+			<link rel="stylesheet" type="text/css" href="static/newmobile/common/css/modules.css" />
+		<link rel="stylesheet" type="text/css" href="static/newmobile/model9/common/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="static/newmobile/model9/red/css/style.css" />
+					<script type="text/javascript" src="../v3.qiyuntong.com/mj/vall/1.js"></script>
+		
+			
+	
+	
+
+	<script type="text/javascript">
+		$(function() {
+			$("img.lazyload").lazyload({effect: "fadeIn",skip_invisible:false});
+		});
+
+			</script>
+</head>
+<script>
+$(function(){
+	$('#aa').on('click',function(){
+		$('.mark').show();
+		$('body').css('overflow','hidden');
+		$('.mx_search').show();
+	});
+	$('.mx_search').find('.close').on('click',function(){
+		$('.mark').hide();
+		$('body').css('overflow','auto');
+		$('.mx_search').hide();
+	});
+});
+</script>
+<style>
+.mark{width:100%;height:100%;position:absolute;top:0;left:0;z-index:9999;display:none;background:#eeeeee;/*background:#f4f5f7;*/}
+.mx_search{position:absolute;left:0;top:0;width:100%;height:50px;border-bottom:1px solid #c6c6c6;background:#f9f9f9;display:none;z-index:99999;}
+.mx_search form *{float:left;}
+.mx_search input{outline:none;}
+.mx_search .close{width:10%;height:50px;line-height:50px;font-size:16px;color:#666;text-align:center;}
+.mx_search .text{width:70%;height:30px;background:#e5e7e4;border-radius:3px;border:none;margin:10px auto 0;font-size:14px;color:#333;padding:0 10px;box-sizing:border-box;}
+.mx_search .submit{width:20%;height:30px;border:none;background:#f9f9f9;font-size:16px;color:#333;margin-top:10px;}
+</style>
+<body>
+<!-- 遮罩层 -->
+<div class="mark"></div>
+<div class="mx_search">
+	<form action="/search.php" method="get">
+		<span class="close">&times;</span>
+		<input type="text" name="s" value="" placeholder="搜索输入框" autocomplete="off" class="text" />
+		<input type="submit" value="搜索" class="submit" />
+	</form>
+</div>
+<script type="text/javascript" src="static/js/layer/mobile/layer.js"></script>
+<script type="text/javascript" src="static/js/scrollReveal.js"></script>
+
+<!--头部嵌入-->
+<div class="header_embed">
+	</div>
+
+<style>
+.m-ft{width:100%; min-height:80px;background: url(../cdn053.yun-img.com/static/upload/a00722y/focus/20180418161235_55191.jpg) repeat top left;}
+</style>
+
+<style>
+/*悬浮透明头部置顶*/
+.m-header-fixed{width:100%;height:50px;font-size: 12px;background: rgba(0,0,0,0.5);position: relative;position: fixed;z-index: 999;}
+.m-header-fixed .m-photo{width: 14.2%;height:44px;background: #fff;overflow:hidden;position: absolute;left:2%;top:6%;border-radius: 50%;}
+.m-header-fixed .m-photo img{width: 100%;height: 50px;}
+.m-header-fixed span{width:50%;height:80%;line-height:20px;margin-top:3%;margin-left:17%;color:#fff;letter-spacing:1px;display: inline-block;overflow: hidden;}
+.m-header-fixed span em{color: #F69F83;}
+.m-header-fixed a{background: #FF6634;color: #fff;font-size: 14px;padding: 6% 6%;border-radius: 5px;display: inline-block;}
+.m-header-fixed i {padding:3% 6%;margin-left:3%;color:#fff;background: #6A6A6A;border-radius:50%;}
+.m-header-fixed .fixed-right{width:30%;height:100%;position: absolute;right: 0;top: 16%;}
+</style>
+
+<!--悬浮头部-->
+<script>
+	$(window).scroll(function(){
+		if($(window).scrollTop()>=50){
+			$('.m-header-fixed').css("display","none");
+		}
+	});
+	$(".fx_applyd").click(function(){
+		$.ajax({
+			url: 'account/fenxiao.php@type=register',
+			success:function(data){
+			layer.open({
+				type: 1
+				,content: data
+				,anim: 'up'
+				,style: 'position:fixed; bottom:0; left:0; width: 100%; height: 400px; padding:10px 0; border:none;'
+			});
+			ExecuteJs(data);
+			}
+		});
+	});
+	function ExecuteJs(data){
+		var regDetectJs = /<script(.|\n)*?>(.|\n|\r\n)*?<\/script>/ig;
+		var jsContained = data.match(regDetectJs);
+		if(jsContained) {
+			// 分段取出js正则
+			var regGetJS = /<script(.|\n)*?>((.|\n|\r\n)*)?<\/script>/im;
+			// 按顺序分段执行js
+			var jsNums = jsContained.length;
+			for (var i=0; i<jsNums; i++) {
+				var jsSection = jsContained[i].match(regGetJS);
+				if(jsSection[2]) {
+					if(window.execScript) {
+						// IE
+						window.execScript(jsSection[2]);
+					} else {
+						// 其他浏览器
+						window.eval(jsSection[2]);
+					}
+				}
+			}
+		}
+	}
+	$(function(){
+		$('.m-header-off').click(function(){
+			$('.m-header-fixed').css('display','none');
+		});
+	});
+		</script>
+<div class="g-document">
+<!-- 头部start -->
+<header class="g-hd" id='header'>
+<div class="g-hd-outer">
+<div class="g-hd-inner g-hd-limit g-hd-edit">
+	<!-- 头部自定义模块 -->
+				<!-- 头部自定义模块 end -->
+	<!-- 头部LOGO -->
+		<div class="m-logo"  id="set_logo"  style="position:relative;top:NaNpx;left:0%;">
+		<a href="default.htm"><img src="../cdn043.yun-img.com/static/upload/a00722y/logo/20180418170637_48773.png"  style=""></a>
+	</div>
+		<!-- 头部右侧start -->
+	<div class="m-hd-right">
+			
+			<a href="account/mobile_center.php" class="set_user"><span class="u-hd-user"  id="set_user"></span></a>
+							</div>
+	<!-- 头部右侧end -->
+	<div class='f-clear'></div>
+</div>
+<div class='f-clear'></div>
+<div id="m-focus" class="m-focus">
+	<style type='text/css' class='m-focus-style'>
+	.m-focus{max-width:100%;  margin:0 auto; position:relative; overflow:hidden;   }
+	.m-focus .hd{ width:100%; height:11px;  position:absolute; z-index:1; bottom:5px; text-align:center;  }
+	.m-focus .hd ul{ display:inline-block; height:5px; padding:3px 5px; background-color:rgba(255,255,255,0.7); 
+		-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; font-size:0; vertical-align:top;
+	}
+	.m-focus .hd ul li{ display:inline-block; width:5px; height:5px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; background:#8C8C8C; margin:0 5px;  vertical-align:top; overflow:hidden;   }
+	.m-focus .hd ul .on{ background:#FE6C9C;  }
+
+	.m-focus .bd{ position:relative; z-index:0; }
+	.m-focus .bd li img{ width:100%; background:url(static/newmobile/common/img/loading.gif) center center no-repeat;  }
+	.m-focus .bd li a{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); }
+	</style>
+	<div class="hd">
+		<ul></ul>
+	</div>
+	<div class="bd">
+		<ul>
+						<li><a href="#"><img src="../cdn037.yun-img.com/static/upload/a00722y/focus/20180612113613_67536.jpg" /></a></li>
+						<li><a href="#"><img src="../cdn047.yun-img.com/static/upload/a00722y/focus/20180612113624_36587.jpg" /></a></li>
+					</ul>
+	</div>
+	<script type="text/javascript">
+		function RunFocus(){
+			jQuery('#m-focus').css('max-width',jQuery('#m-focus').parent().width()+'px');
+			TouchSlide({ slideCell:"#m-focus",titCell:".hd ul",mainCell:".bd ul", effect:"left", autoPlay:true,autoPage:true});
+					}
+		RunFocus();
+		$(window).bind( 'orientationchange', function(e){
+			RunFocus();
+		});
+	</script>
+</div>
+<div class='f-clear'></div>
+</div>
+</header>
+<!-- 头部end --><div class="g-main">
+<div class="m-wg m-mod19 m-mod19-yellow" id="visualmodule_17">
+<style>
+	#visualmodule_17{overflow:initial;}
+</style>
+        <style type='text/css' class='m-wg-ct-style'>#visualmodule_17 .m-wg-ct{font-family:inherit;color:#fff;font-size:16px;}#visualmodule_17 .m-wg-ct a{color:#fff;font-size:16px;}</style>		
+	<link class='custonavcsss' rel="stylesheet" href="static/newmobile/common/navigator/navtheme32/yellow.css" type="text/css">
+    <link class='custonavcsss' rel="stylesheet" href="static/newmobile/common/navigator/navtheme32/modules.css" type="text/css">
+     <style>
+		.headerNav-img{left:4%;}
+     </style>
+	<div class="m-wg-ct">
+		<div  class="m-headerNav">
+			<div class="headerNav-content">
+				<div class="headerNav-title">某某心理咨询中心</div>
+				<div class="headerNav-img"></div>
+			</div>
+			<ul class="headerNav_hide">
+								<li class="showOrHide">
+					<a class="showOrHide_a"  href="index.html">
+						<div class="headerNav-li-img">
+							<img src="static/img/bm_s1.png" />
+						</div>
+						<div class="hide_a">首  页</div>
+						<div class="headerNav-jt"></div>
+					</a>
+					<div style="clear: both;"></div>
+				</li>
+								<li class="showOrHide">
+					<a class="showOrHide_a"  href="news.html">
+						<div class="headerNav-li-img">
+							<img src="static/upload/a00722y/nav/20180418163124_94409.png" />
+						</div>
+						<div class="hide_a">文 章</div>
+						<div class="headerNav-jt"></div>
+					</a>
+					<div style="clear: both;"></div>
+				</li>
+								<li class="showOrHide">
+					<a class="showOrHide_a"  href="message.html">
+						<div class="headerNav-li-img">
+							<img src="../cdn063.yun-img.com/static/upload/a00722y/nav/20180418163215_49778.png" />
+						</div>
+						<div class="hide_a">咨  询</div>
+						<div class="headerNav-jt"></div>
+					</a>
+					<div style="clear: both;"></div>
+				</li>
+								<li class="showOrHide">
+					<a class="showOrHide_a"  href="group.html">
+						<div class="headerNav-li-img">
+							<img src="static/img/blue.png" />
+						</div>
+						<div class="hide_a">测  试</div>
+						<div class="headerNav-jt"></div>
+					</a>
+					<div style="clear: both;"></div>
+				</li>
+								<li class="showOrHide">
+					<a class="showOrHide_a"  href="product.html">
+						<div class="headerNav-li-img">
+							<img src="../cdn055.yun-img.com/static/upload/a00722y/nav/20180418163154_24487.png" />
+						</div>
+						<div class="hide_a">课  程</div>
+						<div class="headerNav-jt"></div>
+					</a>
+					<div style="clear: both;"></div>
+				</li>
+					
+			</ul>
+		</div>
+	</div>
+</div>
+<script>
+	$(function(){
+		/*隐藏头部*/
+		$('.g-hd-inner').css('display','none');
+		/*隐藏头部嵌入代码*/
+		$('.header_embed').css('display','none')
+		
+		/*整体内填充和控制在模拟器上菜单宽度*/
+		$('.g-document').css('padding-top','50px');
+		$('#visualmodule_17').css('width',$('.g-document').width());
+		
+		/*改变编辑位置*/
+	    $('#visualmodule_17').css('z-index','99999');
+	    $('#visualmodule_17').css('position','fixed');
+	    $('#visualmodule_17').css('margin','0');
+	    $('#visualmodule_17').css('padding','0');
+    	if($('div').hasClass('visualtoolkit-header')){
+   			$('#visualmodule_17').css('top','40px');
+	   	}else{
+	   		$('#visualmodule_17').css('top','0');	
+	   	}
+	   	
+	   	/*点击*/
+	   	 jQuery.fn.slideLeftHide = function( speed, callback ) {    
+	        this.animate({    
+	            width : "hide",    
+	            paddingLeft : "hide",    
+	            paddingRight : "hide",    
+	            marginLeft : "hide",    
+	            marginRight : "hide"    
+	        }, speed, callback );    
+	    };    
+	    jQuery.fn.slideLeftShow = function( speed, callback ) {    
+	        this.animate({    
+	            width : "show",    
+	            paddingLeft : "show",    
+	            paddingRight : "show",    
+	            marginLeft : "show",    
+	            marginRight : "show"    
+	        }, speed, callback );    
+	    };  
+	   	$('.headerNav-img').click(function(){
+	   		
+   			if($('.headerNav_hide').css("display")=='block'){
+// 				$('.m-headerNav').css('position','');
+   				/*去除li过度*/
+	   			$('.headerNav_hide li').css('transition','')
+   				$('.headerNav_hide').slideLeftHide();
+   				$('.showOrHide').css('opacity',0);
+   				$('.showOrHide').css('transform','translateX(-18em)');
+// 				$('.g-document').animate({'left':'0'},800);
+//	   			$('.plug-div .plug-phone_dfse').animate({'left':'0'},800);
+   				/*恢复li过度*/
+	   			$('.headerNav_hide li').css('transition','.3s');
+//	   			$('.g-document').css('position','');
+			}
+   			if($('.headerNav_hide').css("display")=='none'){
+// 				$('.m-headerNav').css('position','fixed');
+   				$('.headerNav_hide').slideLeftShow();
+   					$('.showOrHide').css('opacity',1)
+   					$('.showOrHide').css('transform','translateX(0)');
+   					var z = 0;
+			   	$('.headerNav_hide li').each(function(){
+			   		z+=0.07;
+			   		$(this).css('transitionDelay',z+'s');
+			   		z= z;
+			   	})
+//			   	$('.g-document').css('position','fixed');
+//			   	$('.g-document').animate({'left':'60%'},800);
+//	   			$('.plug-div .plug-phone_dfse').animate({'left':'60%'},800);
+			   	
+   				
+   			}
+	   	});
+	   
+	   	/*控制UL的高度*/
+	   	$('.headerNav_hide').css('height',$(window).height()-50);
+	   	
+	   	
+	   	/*减去在演示模版时头部的高度*/
+	   	var headerH = $('.m-demo-sitetips').height();
+	   	if($('div').hasClass('m-demo-sitetips')){
+	   		$('#visualmodule_17').css('top',headerH);
+	   	}
+	   
+	   var SYSPAGEURL = window.location.pathname + window.location.search;
+
+		$(document).ready(function(){
+		    		    $('.headerNav_hide').levelmenu();
+		    
+		    $(".headerNav_hide .hover").removeClass('hover');
+		    $(".headerNav_hide a[href='" + SYSPAGEURL + "']").parent().addClass('hover');
+		});
+		$.fn.levelmenu = function(){
+		    $(this).css('z-index','999');
+		    var overmax = false;
+		    var parent = this;
+		    $('>ul>li', this).each(function(){
+		        if(overmax){
+		            $('<li>'+$(this).html()+'</li>').appendTo($('.more', parent));
+		            $(this).remove();
+		        }else{
+		            if($(this).next().length>0){
+		                if($(this).offset().left > $(this).next().offset().left){
+		                    $('<li><a href="#">更多</a><ul class="more"></ul></li>').appendTo($(">ul", parent));
+		                    $('.more', parent).addClass('last');
+		                    $('<li>'+$(this).html()+'</li>').appendTo($('.more', parent));
+		                    $(this).remove();
+		                    overmax = true;
+		              	}
+		            }else{
+		                if($(this).find('ul ul:first').length>0){
+		                    $(this).find('ul:first').addClass('last');
+		                }
+		        	}
+	        	}
+		    });
+		};
+	})
+	
+	
+</script><!-- 站点自定义模块 -->
+<div class="m-wg m-default m-default-default" id="visualmodule_18" style='border-style:none;border-width:0px;border-color:#555555;margin-left:0px;margin-right:0px;margin-top:10px;margin-bottom:0px;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;'>
+		<style type='text/css' class='m-wg-ct-style'>#visualmodule_18 .m-wg-ct{font-family:inherit;padding-left:5px;}</style>	<div class="m-wg-ct">
+		<div class='m-theme28'><div style="border-left:5px solid #ffcc00;margin:5px 0;">
+	<p style="font-size:16px;color:#ffcc00;padding-left:8px;font-weight:bold;line-height:1.5em;">
+		今日头条
+	</p>
+</div></div>
+	</div>
+</div>
+<!-- 模块 end  duangou-->
+<div class="m-wg m-default m-default-default" id="visualmodule_19" style='border-style:none;border-width:0px;border-color:#555555;margin-left:0px;margin-right:0px;margin-top:0px;margin-bottom:0px;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;'>
+		<style type='text/css' class='m-wg-ct-style'>#visualmodule_19 .m-wg-ct{font-family:inherit;font-size:14px;color:#555;padding-left:5px;padding-right:5px;}#visualmodule_19 .m-wg-ct a{font-size:14px;color:#555;}</style>	<div class="m-wg-ct">
+		<div class='m-theme2'>
+			<ul>
+									<li>
+						<a href="newsdetail_931500.html" target="_blank" >因“人际关系崩溃”而焦虑的初中生</a>
+						<span class="time">2018-04-18</span>
+					</li>
+										<li>
+						<a href="newsdetail_931499.html" target="_blank" >《提高大脑记忆力》教学案例</a>
+						<span class="time">2018-04-18</span>
+					</li>
+										<li>
+						<a href="newsdetail_931498.html" target="_blank" >学习生活本一体，丝缕之间有关联 </a>
+						<span class="time">2018-04-18</span>
+					</li>
+										<li>
+						<a href="newsdetail_929108.html" target="_blank" >你的付出，要遇上对的人</a>
+						<span class="time">2018-04-17</span>
+					</li>
+										<li>
+						<a href="newsdetail_929107.html" target="_blank" >两个人长久在一起，最关键的是什么？</a>
+						<span class="time">2018-04-17</span>
+					</li>
+								</ul>
+		</div>
+		<div class='f-clear'></div>
+	</div>
+</div>
+
+<div class="m-wg m-default m-default-default" id="visualmodule_20">
+<style>
+.m-theme21 { overflow: hidden; position: relative; border: 1px solid #ddd;}
+.m-theme21 .hd { height: 20px; overflow: hidden; position: absolute; left:0px; bottom: 5px; z-index: 1; width:270px;}
+.m-theme21 .hd ul li { float: left;width: 15px; height: 20px; padding:0 2px; margin-right: 2px; text-align: center; background: #fff; cursor: pointer; font: normal 14px/20px 宋体;}
+.m-theme21 .hd ul li.on { background: #f00; color: #fff;}
+.m-theme21 .big_num{ margin-right: 4px !important; width:18px !important; padding:0 1px 0 2px !important;}
+</style>
+			<div class="m-wg-ct">
+				<div class="m-theme21">
+			<div class="hd">
+				<ul>
+				   					     
+					    	<li>1</li>
+										   					     
+					    	<li>2</li>
+										    
+				</ul>
+			</div>
+			<div class="bd">
+				<ul>
+										<li>
+												<a href="#" target="_blank">
+													<img src="../cdn055.yun-img.com/static/upload/a00722y/visualtoolkit/20180612114354_51420.jpg" />
+						</a>
+					</li>
+										<li>
+												<a href="#" target="_blank">
+													<img src="../cdn045.yun-img.com/static/upload/a00722y/visualtoolkit/20180612114349_71868.jpg" />
+						</a>
+					</li>
+									</ul>
+			</div>
+			<!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+			<a class="prev" href="javascript:void(0)"></a>
+			<a class="next" href="javascript:void(0)"></a>
+		</div>
+
+		<script type="text/javascript">jQuery("#visualmodule_20 .m-theme21").slide({mainCell:".bd ul",autoPlay:true});</script>
+			</div>
+</div> 
+
+<script type='text/javascript'>
+$(document).ready(function(){
+	function ProductResizevisualmodule_20(){
+		$("#visualmodule_20 .m-mix-outer").each(function(index){
+			if((index+1) % 2 ==0){
+				if($(this).height() > $(this).prev().height()){
+					//$(this).prev().height($(this).height());
+				}else{
+					$(this).height($(this).prev().height()+1);
+				}
+			}
+		});
+	}
+	ProductResizevisualmodule_20();
+	$(window).resize(function(){
+		ProductResizevisualmodule_20();
+	});
+});
+</script><!-- 站点自定义模块 -->
+<div class="m-wg m-default m-default-default" id="visualmodule_21">
+		<style type='text/css' class='m-wg-ct-style'>#visualmodule_21 .m-wg-ct{font-family:inherit;padding-left:5px;}</style>	<div class="m-wg-ct">
+		<div class='m-theme28'><div style="border-left:5px solid #ffcc00;margin:5px 0;">
+	<p style="font-size:16px;color:#ffcc00;padding-left:8px;font-weight:bold;line-height:1.5em;">
+		婚恋职场
+	</p>
+</div></div>
+	</div>
+</div>
+<!-- 模块 end  duangou-->
+<div class="m-wg m-default m-default-default" id="visualmodule_22">
+		<style type='text/css' class='m-wg-ct-style'>#visualmodule_22 .m-wg-ct{font-family:inherit;font-size:12px;}#visualmodule_22 .m-wg-ct a{font-size:12px;}</style>	<div class="m-wg-ct">
+		<!-- 图片简介栏目 -->
+		<div class="m-theme218">
+									<div class="theme218-item">
+				<div class="item-img">
+					<a href="newsdetail_929095.html" target="_self">
+						<img src="../cdn057.yun-img.com/static/upload/a00722y/news/20180418152242_78775.jpg" alt="在人际交往中，你要懂得赞美，善于赞美">
+					</a>
+				</div>
+				<div class="item-content">
+					<a href="newsdetail_929095.html" target="_self">
+						<p>在人际交往中，你要懂得赞美，善于赞美</p>
+						<span class="content-text">不要吝啬你的赞美心理学家威廉·杰姆斯说：“人性最深层的需要就是渴望别人欣赏。...</span>
+						<em>时间:<span>2018-04-17</span></em>
+					</a>
+				</div>
+				<div class="clearing"></div>
+			</div>
+
+			<div class="clearing"></div>
+									<div class="theme218-item">
+				<div class="item-img">
+					<a href="newsdetail_929088.html" target="_self">
+						<img src="../cdn055.yun-img.com/static/upload/a00722y/news/20180418152228_12122.jpg" alt="你如何提高团队的工作效能？">
+					</a>
+				</div>
+				<div class="item-content">
+					<a href="newsdetail_929088.html" target="_self">
+						<p>你如何提高团队的工作效能？</p>
+						<span class="content-text">在职场中，管理层与执行层的差别不仅仅体现在想法与信息获取面上，正是由于有这么...</span>
+						<em>时间:<span>2018-04-17</span></em>
+					</a>
+				</div>
+				<div class="clearing"></div>
+			</div>
+
+			<div class="clearing"></div>
+									<div class="theme218-item">
+				<div class="item-img">
+					<a href="newsdetail_929017.html" target="_self">
+						<img src="../cdn037.yun-img.com/static/upload/a00722y/news/20180418152311_35122.jpg" alt="给所有的失去一个温暖的结局">
+					</a>
+				</div>
+				<div class="item-content">
+					<a href="newsdetail_929017.html" target="_self">
+						<p>给所有的失去一个温暖的结局</p>
+						<span class="content-text">有时，我们拿自己的伤痛换来共鸣的病友，可是这样的一时冲动，会让我们在一起病多...</span>
+						<em>时间:<span>2018-04-17</span></em>
+					</a>
+				</div>
+				<div class="clearing"></div>
+			</div>
+
+			<div class="clearing"></div>
+					</div>
+		<!-- 图片简介栏目 end -->
+	</div>
+</div><!-- 站点自定义模块 -->
+<div class="m-wg m-default m-default-default" id="visualmodule_23">
+		<style type='text/css' class='m-wg-ct-style'>#visualmodule_23 .m-wg-ct{font-family:inherit;padding-left:5px;}</style>	<div class="m-wg-ct">
+		<div class='m-theme28'><div style="border-left:5px solid #ffcc00;margin:5px 0;">
+	<p style="font-size:16px;color:#ffcc00;padding-left:8px;font-weight:bold;line-height:1.5em;">
+		爱情说说
+	</p>
+</div></div>
+	</div>
+</div>
+<!-- 模块 end  duangou-->
+<!-- 站点自定义模块 -->
+<div class="m-wg m-default m-default-default" id="visualmodule_24">
+		<style type='text/css' class='m-wg-ct-style'>#visualmodule_24 .m-wg-ct{font-family:inherit;padding-left:10px;}</style>	<div class="m-wg-ct">
+		<div class='m-theme28'><table style="width:100%;margin:0 auto;" cellpadding="2" cellspacing="0" class="ke-zeroborder">
+	<tbody>
+		<tr>
+			<td>
+				<a href="newsdetail_929105.html"><img class='lazyload' data-original="../cdn053.yun-img.com/static/upload/a00722y/visualtoolkit/20180612114532_23466.jpg" style="width:95%;margin:0 auto;" alt="" /></a><br />
+				<p style="font-size:12px;line-height:2em;color:#333;">
+					只因还没有到最后
+				</p>
+			</td>
+			<td>
+				<a href="newsdetail_929101.html"><img class='lazyload' data-original="../cdn055.yun-img.com/static/upload/a00722y/visualtoolkit/20180612114549_23404.jpg" style="width:95%;margin:0 auto;" alt="" /></a><br />
+				<p style="font-size:12px;line-height:2em;color:#333;">
+					吝啬于表达的人...
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<br />
+			</td>
+			<td>
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="newsdetail_929107.html"><img class='lazyload' data-original="../cdn053.yun-img.com/static/upload/a00722y/visualtoolkit/20180612114603_42340.jpg" style="width:95%;margin:0 auto;" alt="" /></a><br />
+				<p style="font-size:12px;line-height:2em;color:#333;">
+					两个人在一起长久...
+				</p>
+			</td>
+			<td>
+				<a href="newsdetail_929108.html"><img class='lazyload' data-original="../cdn035.yun-img.com/static/upload/a00722y/visualtoolkit/20180612114556_54463.jpg" style="width:95%;margin:0 auto;" alt="" /></a><br />
+				<p style="font-size:12px;line-height:2em;color:#333;">
+					你的付出...
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table></div>
+	</div>
+</div>
+<!-- 模块 end  duangou-->
+<!-- 站点自定义模块 -->
+<div class="m-wg m-default m-default-default" id="visualmodule_25">
+		<style type='text/css' class='m-wg-ct-style'>#visualmodule_25 .m-wg-ct{font-family:inherit;padding-left:5px;}</style>	<div class="m-wg-ct">
+		<div class='m-theme28'><div style="border-left:5px solid #ffcc00;margin:5px 0;">
+	<p style="font-size:16px;color:#ffcc00;padding-left:8px;font-weight:bold;line-height:1.5em;">
+		亲子教育系列
+	</p>
+</div></div>
+	</div>
+</div>
+<!-- 模块 end  duangou-->
+<!-- 站点自定义模块 -->
+<div class="m-wg m-default m-default-default" id="visualmodule_26" style='border-style:none;border-width:0px;border-color:#555555;margin-left:0px;margin-right:0px;margin-top:0px;margin-bottom:0px;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;'>
+		<style type='text/css' class='m-wg-ct-style'>#visualmodule_26 .m-wg-ct{font-family:inherit;padding-left:5px;}</style>	<div class="m-wg-ct">
+		<div class='m-theme28'><style>
+.qingxu{margin-top:5px;}
+.qingxu a{    font-size: 14px;color: #999999;margin:0 10px;text-decoration: none;line-height:2em;}
+.qingxu a:hover{text-decoration: none;color:#ffc001;}
+</style>
+<div class="qingxu">
+	<a href="newsdetail_931500.html">自闭怕生</a> <a href="newsdetail_931499.html">多动</a> <a href="newsdetail_931498.html">早恋</a> <a href="newsdetail_931500.html">自卑孤僻</a> <a href="newsdetail_931499.html">不良行为碍</a> <a href="newsdetail_931498.html">学习障碍</a> <a href="newsdetail_931500.html">不合群</a> <a href="newsdetail_931499.html">网瘾</a> <a href="newsdetail_931498.html">阅读障碍</a> 
+</div></div>
+	</div>
+</div>
+<!-- 模块 end  duangou-->
+<div class='g-main-clear' style='clear:both'></div>
+</div>
+<div style="clear:both"></div>
+
+<!-- 底部start -->
+<footer class="m-ft g-ft-edit">
+	<div class='m-ft-login'>
+						<span id='set_userbox'>
+				<span class='m-ft-log-link'><a href='account/shop_login.php'>登录</a> &nbsp;&nbsp; <a href='account/shop_signup.php'>注册</a></span>
+				</span>
+								<span id='set_gotop' class='m-gotop' ><a href='#header'>返回顶部</a></span>
+				<div style='clear:both;'> </div>
+	</div>
+	
+	<!-- 脚部自定义模块 -->
+		<div class="m-ft-foothtmlWrap" id="set_foothtml" >
+		<div class="m-ft-foothtml" {"width":"1000px","height":"54px"}>
+		<div class='m-foothtml-ct'><style>
+.m-ft a {
+    color: #fff;margin-bottom:5px;}
+.m-ft-login {border-bottom: 0px solid #8d0101;
+background:#ffcc00;}
+</style></div>
+		</div>
+	</div>
+		<!-- 脚部自定义模块 end -->
+	<!-- 底部菜单start -->
+		<!-- 底部菜单end -->
+		<p  id="set_address" >
+	<span>北京市海淀区中关村东路105号A塔2201室&nbsp;&nbsp;&nbsp;</span>
+	</p>
+		
+	<p>
+				<span id="set_copyright" >copyright ©2012</span>
+								<span id="set_telphone" >010-22228888</span>
+			</p>
+	
+	</footer>
+<!-- 底部end -->
+<!-- 底部插件注入区 -->
+
+ <link rel="stylesheet" href="static/css/sidenav/m/theme2/yellow.css"> 
+ 	<style>
+.plug-div .icon_wswd{-webkit-background-size:20px auto;-o-background-size:20px auto;height:24px;margin:2px auto 0;display:block;width:100%; text-align:center;}
+.plug-div,.plug-phone_dfse{height:50px;}
+.plug-div .plug-phone_dfse{  position:fixed; z-index:900; bottom:0; left:0; right:0; margin:auto; display:block; width:100%; overflow:hidden; display:-webkit-box; display:box; -webkit-box-orient:horizontal; }
+.plug-div .plug-phone_dfse div{ width:auto!important; height:100%; position:static!important; margin:0; border-radius:0!important; -webkit-box-sizing:border-box; box-sizing:border-box; -webkit-box-flex:1; box-flex:1; -webkit-box-sizing:border-box; overflow:hidden; box-shadow:none!important; background:none;}
+.plug-div .plug-phone_dfse div a{display:block;width:100%;height:100%;text-decoration:none;}
+.plug-div .plug-phone_dfse div .title,.plug-phone_dfse .title{line-height:22px;font-size:16px; font-weight:bold; text-align:center;width:100%;margin:0 auto; text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.icon_wswd { speak: none; font-weight: normal; font-variant: normal; text-transform: none; -webkit-font-smoothing: antialiased;color: #fff; margin: 0 auto; font-size: 20px; display: inline-block; width: 30px; height: 100%; text-align: center; float: left; -webkit-background-size: 20px auto; -o-background-size: 20px auto; background-position: center; background-repeat: no-repeat; margin-right: 5px;}
+.icon_wswd img{ margin:0 auto; width:20px;}
+	</style>
+
+	<script type="text/javascript" src="../api.map.baidu.com/api@v=2.0&ak=2Ob1Cq4Ox2VLz1Dz1SHoHyjhECGsNWPr"></script>
+<script type="text/javascript">
+var addr = '北京市海淀区中关村东路105号A塔2201室';//获取地址信息
+var title = '某某心理咨询中心';//获取公司名称
+var latitude= '';
+var longitude= '';
+
+var myGeo = new BMap.Geocoder();
+myGeo.getPoint(addr, function(point){
+    if (point) {
+        // alert("../api.map.baidu.com/marker@location="+point.lat+","+point.lng+"&title="+decodeURIComponent(title)+"&content="+decodeURIComponent(addr)+"&output=html");
+        $('#GoMap').attr('href',"../api.map.baidu.com/marker@location="+point.lat+","+point.lng+"&title="+decodeURIComponent(title)+"&content="+decodeURIComponent(addr)+"&output=html");
+    } else {
+        $('#GoMap').attr('href',"../api.map.baidu.com/marker@location=113.30765, 23.120049"+"&title="+decodeURIComponent(title)+"&content="+decodeURIComponent(addr)+"&output=html");
+    }
+});
+
+</script>
+	
+	<div class="plug-div">
+		<div class="plug-phone_dfse">
+						<div>
+			          	<a href="tel_3A010-22228888" data-ajax="false" >
+				<i class="icon_wswd"><img src="static/img/bm_s1.png" width="20" height="20" /></i>
+				<p class="title">电话</p>
+          	</a>
+			          </div>
+		  		  				<div>
+						<a href="default.htm" id='GoMap' data-ajax="false" >
+				<i class="icon_wswd"><img src="static/img/bm_s3.png" width="20" height="20" /></i>
+				<p class="title">地图</p>
+          	</a>
+			          </div>
+		  		  				<div>
+																			<a href="message.html" data-ajax="false" >
+					<i class="icon_wswd"><img src="static/img/bm_s2.png" width="20" height="20" /></i>
+					<p class="title">留言</p>
+				</a>
+							          </div>
+		  		  				<div>
+														  <div>
+								<a href="account/shop_login.php" data-ajax="false">
+									<i class="icon_wswd"><img src="static/img/bm_s5.png" width="20" height="20" /></i>
+					<p class="title">推广</p>
+				</a>
+			  </div>
+												<a href="../account/fenxiao.php@type=fx_apply" data-ajax="false" >
+					<i class="icon_wswd"><img src="static/img/bm_s5.png" width="20" height="20" /></i>
+					<p class="title">我要分销</p>
+				</a>
+							          </div>
+		  		  				<div>
+																			<a href="account/mobile_center.php" data-ajax="false" >
+					<i class="icon_wswd"><img src="static/img/bm_user.png" width="20" height="20" /></i>
+					<p class="title">用户中心</p>
+				</a>
+							          </div>
+		  		  	</div>
+	</div>
+<!-- ios fixed兼容 -->
+<style>
+.plug-div .pos-rel { position: relative;}
+</style>
+<script>
+    $(function() {
+        var isIOS = (/iphone|ipad/gi).test(navigator.appVersion);
+
+        if (isIOS) {
+            $('.g-document').on('focus','input', function () {
+                $('.plug-div .plug-phone_dfse').addClass('pos-rel');
+            }).on('focusout', 'input', function () {
+                $('.plug-div .plug-phone_dfse').removeClass('pos-rel');
+             });
+              $('.g-document').on('focus','textarea', function () {
+                $('.plug-div .plug-phone_dfse').addClass('pos-rel');
+            }).on('focusout', 'textarea', function () {
+                $('.plug-div .plug-phone_dfse').removeClass('pos-rel');
+             });
+        }
+    });
+</script>
+<!-- ios fixed兼容 end-->	
+<script>
+$("#fx_apply").click(function(){
+	$.ajax({
+		url: 'account/fenxiao.php@type=register',
+		success:function(data){
+		layer.open({
+			type: 1
+			,content: data
+			,anim: 'up'
+			,style: 'position:fixed; bottom:0; left:0; width: 100%; height: 400px; padding:10px 0; border:none;'
+		});
+		ExecuteJs(data);
+		}
+	});
+});
+
+function ExecuteJs(data){
+	var regDetectJs = /<script(.|\n)*?>(.|\n|\r\n)*?<\/script>/ig;
+	var jsContained = data.match(regDetectJs);
+
+	if(jsContained) {
+		// 分段取出js正则
+		var regGetJS = /<script(.|\n)*?>((.|\n|\r\n)*)?<\/script>/im;
+
+		// 按顺序分段执行js
+		var jsNums = jsContained.length;
+		for (var i=0; i<jsNums; i++) {
+			var jsSection = jsContained[i].match(regGetJS);
+
+			if(jsSection[2]) {
+				if(window.execScript) {
+					// IE
+					window.execScript(jsSection[2]);
+				} else {
+					// 其他浏览器
+					window.eval(jsSection[2]);
+				}
+			}
+		}
+	}
+}
+</script>
+<style>
+	body{
+		background: url("../cdn043.yun-img.com/static/upload/a00700t/focus/20180208143349_69564.png") repeat scroll left top rgba(0, 0, 0, 0);
+		background-size:contain;
+	}
+</style>
+
+<style type='text/css'>
+.m-demo-sitetips {line-height: 30px;font-size: 14px;color: #000;text-align: center;position: fixed;left: 0;top: 0;z-index: 10000;width: 100%;min-height: 30px;_height: 30px;max-height:60px;border-bottom: 0;border-bottom: 1px solid #d8d8d8 \9;margin: 0;padding: 0;background: #fff;-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.2);-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.2);box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
+.m-demo-sitetips .m-demo-keepcenter {max-width: 100%;min-width: 320px;min-height: 30px;_height: 30px;max-height:60px;line-height: 30px;margin: 0 auto;position: relative;}
+.m-demo-sitetips .m-demo-tiptext {/*float: left;*/}
+.m-demo-sitetips .m-demo-tiptext span {color: #666;_float:left;}
+.m-demo-red{color:red;}
+</style>
+
+<script>
+  window.scrollReveal = new scrollReveal();
+</script>
+</div>
+</body>
+</html>
