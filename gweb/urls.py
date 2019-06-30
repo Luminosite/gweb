@@ -13,14 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import re_path
+from django.urls import re_path, path
+from django.views.generic.base import TemplateView
 from .views_entrance import v, test
+from .info_register import info_reg
+from .info_register import info_page
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    re_path('v/', v),
-    re_path('t/', test),
-    # re_path('^static/(<path>)', serve, {
-    #     'document_root': 'tmp/static'
-    # }),
+    re_path('info_input', info_reg),
+    path('info', info_page),
+    path('vue/', test),
+    path('v/', v),
+    path('', TemplateView.as_view(template_name="mint-start.html"))
 ]

@@ -54,7 +54,7 @@ ROOT_URLCONF = 'gweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['front_ed/dist'],
+        'DIRS': ['front_ed/dist', 'front_test'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,5 +120,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'front_ed/dist/static')
+    os.path.join(BASE_DIR, 'front_ed/dist/static'),
+    os.path.join(BASE_DIR, 'front_test/static')
 ]
