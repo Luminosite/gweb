@@ -123,3 +123,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'front_ed/dist/static'),
     os.path.join(BASE_DIR, 'front_test/static')
 ]
+
+APPEND_SLASH = False

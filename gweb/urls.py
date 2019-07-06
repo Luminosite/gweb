@@ -16,14 +16,17 @@ Including another URLconf
 from django.urls import re_path, path
 from django.views.generic.base import TemplateView
 from .views_entrance import v, test
-from .info_register import info_reg
-from .info_register import info_page
+from .info_register import info_reg, info_page, login_page, login, main
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    re_path('info_input', info_reg),
+    path('', login_page),
+    path('login_page/', login_page),
+    path('login/', login),
+    path('main/', main),
     path('info', info_page),
+    re_path('info_input', info_reg),
     path('vue/', test),
     path('v/', v),
-    path('', TemplateView.as_view(template_name="mint-start.html"))
+    path('p', TemplateView.as_view(template_name="mint-start.html"))
 ]
