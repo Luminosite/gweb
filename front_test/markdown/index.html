@@ -5,18 +5,31 @@
     <!-- Icons & Stylesheets -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css"/>
-<!--    <script src="require.js"></script>-->
+    <!--    <script src="require.js"></script>-->
 </head>
 <body>
 <!--    <script src="https://unpkg.com/vue/dist/vue.js"></script>-->
-    <script src="vue.js"></script>
+<script src="vue.js"></script>
 <!--    <script src="https://unpkg.com/marked"></script>-->
-    <div id="notebook_root">
-<!--        <section id="main">{{content}}</section>-->
-        <textarea id="t" v-model="content"></textarea>
+<div id="notebook_root">
+    <!--        <section id="main">{{content}}</section>-->
+    <aside class="side-bar">
+        <button @click="addNote" :title="addTitle">
+            <i class="material-icons">ADD NOTE</i>
+        </button>
+        <div class="note_list">
+            <div class="note" v-for="note in notes" @click="setSelectedId(note)">
+                {{note.id}}: {{note.title}}
+            </div>
+        </div>
+    </aside>
+    <template v-if="selectedNote">
+
+        <textarea id="t" v-model="selectedNote.content"></textarea>
         <aside class="note_preview" v-html="notePreview"></aside>
-    </div>
-    <!-- Some JavaScript -->
-    <script src="script.js"></script>
+    </template>
+</div>
+<!-- Some JavaScript -->
+<script src="script.js"></script>
 </body>
 </html>
