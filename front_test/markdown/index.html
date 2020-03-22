@@ -1,0 +1,21 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Notebook</title>
+    <!-- Icons & Stylesheets -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+<!--    <script src="require.js"></script>-->
+</head>
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/marked"></script>
+    <div id="notebook_root">
+<!--        <section id="main">{{content}}</section>-->
+        <textarea id="t" v-model="content"></textarea>
+        <p>{{content}}</p>
+    </div>
+    <!-- Some JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
