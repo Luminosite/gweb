@@ -45,6 +45,14 @@ body {
   float: right;
 }
 
+#notebook_root > input {
+  height: 19%;
+}
+
+#notebook_root > textarea {
+  height: 80%;
+}
+
 button,
 input,
 textarea {

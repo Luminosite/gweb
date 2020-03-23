@@ -23,8 +23,9 @@
             </div>
         </div>
     </aside>
-    <template v-if="selectedNote">
 
+    <template v-if="selectedNote">
+        <input class="title" v-model="selectedNote.title">
         <textarea id="t" v-model="selectedNote.content"></textarea>
         <aside class="note_preview" v-html="notePreview"></aside>
     </template>
