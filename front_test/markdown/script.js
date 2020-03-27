@@ -13,14 +13,12 @@ var app = new Vue({
   el: '#notebook_root',
   data() {
     return {
-      content: '',
       storedKey: 'note_content',
       notes: [],
       selectedId: null,
     }
   },
   created() {
-    this.initContent()
     this.initNotes()
   },
   computed: {
@@ -43,6 +41,7 @@ var app = new Vue({
     }
   },
   watch: {
+    selectedId: 'saveSelectedId',
     content: 'checkpoint',
     notes: {
       handler: 'updateNotes',
@@ -50,6 +49,9 @@ var app = new Vue({
     }
   },
   methods: {
+    saveSelectedId(newValue, oldValue){
+      localStorage.setItem('sId', newValue)
+    },
     setSelectedId(node){
       this.selectedId = node.id
     },
@@ -58,6 +60,7 @@ var app = new Vue({
     },
     initNotes(){
       this.notes = JSON.parse(localStorage.getItem('notes')) || []
+      this.selectedId = localStorage.getItem('sId') || null
     },
     updateNotes(){
       localStorage.setItem('notes', JSON.stringify(this.notes))
