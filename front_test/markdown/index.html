@@ -11,14 +11,15 @@
 <!--    <script src="https://unpkg.com/vue/dist/vue.js"></script>-->
 <script src="vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<!--    <script src="https://unpkg.com/marked"></script>-->
+<script src="https://unpkg.com/moment"></script>
 <div id="notebook_root">
   <aside class="side-bar">
     <button @click="addNote" :title="addTitle">
       <i class="material-icons">ADD NOTE</i>
     </button>
     <div class="notes_list">
-      <div class="note" v-for="note in notes" @click="setSelectedId(note)" :>
+      <div class="note" v-for="note in notes" @click="setSelectedId(note)"
+           :class="{selected: note === selectedNote}">
         {{note.title}} <i class="material-icons">{{favoriteStar(note)}}</i>
       </div>
     </div>
@@ -34,6 +35,24 @@
         <button @click="rmNote" title="remove note"><i class="material-icons">delete</i></button>
       </div>
       <textarea id="t" v-model="selectedNote.content"></textarea>
+      <div class="toolbar status-bar">
+        <span class="date">
+          <span class="label">Created: </span>
+          <span class="value">{{selectedNote.create_time | date}}</span>
+        </span>
+        <span class="lines">
+          <span class="label">lines: </span>
+          <span class="value">{{lines}}</span>
+        </span>
+        <span class="words">
+          <span class="label">words: </span>
+          <span class="value">{{words}}</span>
+        </span>
+        <span class="characters">
+          <span class="label">characters: </span>
+          <span class="value">{{characters}}</span>
+        </span>
+      </div>
     </section>
 
     <aside class="note_preview" v-html="notePreview"></aside>

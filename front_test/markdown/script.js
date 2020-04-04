@@ -9,6 +9,8 @@ function log(n) {
   console.log("here", n)
 }
 
+Vue.filter('date', time => moment(time).format('YY-MM-DD HH:mm:ss'))
+
 var app = new Vue({
   el: '#notebook_root',
   data() {
@@ -28,6 +30,24 @@ var app = new Vue({
     },
     notePreview() {
       return this.selectedNote ? marked(this.selectedNote.content) : ''
+    },
+    lines() {
+      if (this.selectedNote) {
+        return this.selectedNote.content.split(/\r\n|\r|\n/).length
+      }
+    },
+    words() {
+      if (this.selectedNote) {
+        var s = this.selectedNote.content.replace(/\r\n|\r|\n/g, ' ')
+        s = s.replace(/(^\s*)|(\s*$)/gi, '')
+        s = s.replace(/\s+/gi, ' ')
+        return s.split(' ').length
+      }
+    },
+    characters() {
+      if (this.selectedNote) {
+        return this.selectedNote.content.split('').length
+      }
     },
     addTitle() {
       const n = this.notes
@@ -109,8 +129,8 @@ var app = new Vue({
         id: String(time),
         title: 'new note',
         content: '## This is a new note!',
-        create_time: String(time),
-        last_modify_time: String(time),
+        create_time: time,
+        last_modify_time: time,
         favorite: false,
       }
       this.notes.push(note)

@@ -107,6 +107,10 @@ input {
   font-style: italic;
 }
 
+.status-bar .value {
+  color: #666;
+}
+
 textarea {
   resize: none;
   border: none;
