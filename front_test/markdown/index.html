@@ -1,34 +1,43 @@
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Notebook</title>
-    <!-- Icons & Stylesheets -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"/>
-    <!--    <script src="require.js"></script>-->
+  <meta charset="UTF-8">
+  <title>Notebook</title>
+  <!-- Icons & Stylesheets -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <!--    <script src="require.js"></script>-->
 </head>
 <body>
 <!--    <script src="https://unpkg.com/vue/dist/vue.js"></script>-->
 <script src="vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <!--    <script src="https://unpkg.com/marked"></script>-->
 <div id="notebook_root">
-    <!--        <section id="main">{{content}}</section>-->
-    <aside class="side-bar">
-        <button @click="addNote" :title="addTitle">
-            <i class="material-icons">ADD NOTE</i>
-        </button>
-        <div class="note_list">
-            <div class="note" v-for="note in notes" @click="setSelectedId(note)">
-                {{note.id}}: {{note.title}}
-            </div>
-        </div>
-    </aside>
+  <aside class="side-bar">
+    <button @click="addNote" :title="addTitle">
+      <i class="material-icons">ADD NOTE</i>
+    </button>
+    <div class="notes_list">
+      <div class="note" v-for="note in notes" @click="setSelectedId(note)" :>
+        {{note.title}} <i class="material-icons">{{favoriteStar(note)}}</i>
+      </div>
+    </div>
+  </aside>
 
-    <template v-if="selectedNote">
-        <input class="title" v-model="selectedNote.title">
-        <textarea id="t" v-model="selectedNote.content"></textarea>
-        <aside class="note_preview" v-html="notePreview"></aside>
-    </template>
+  <template v-if="selectedNote">
+    <section class="main">
+      <div class="toolbar">
+        <input class="title" v-model="selectedNote.title" placeholder="Note Title"/>
+        <button @click="favoriteNote" :title="showFavoriteTitle()">
+          <i class="material-icons">{{favoriteStar(selectedNote)}}</i>
+        </button>
+        <button @click="rmNote" title="remove note"><i class="material-icons">delete</i></button>
+      </div>
+      <textarea id="t" v-model="selectedNote.content"></textarea>
+    </section>
+
+    <aside class="note_preview" v-html="notePreview"></aside>
+  </template>
 </div>
 <!-- Some JavaScript -->
 <script src="script.js"></script>

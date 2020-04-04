@@ -45,14 +45,6 @@ body {
   float: right;
 }
 
-#notebook_root > input {
-  height: 19%;
-}
-
-#notebook_root > textarea {
-  height: 80%;
-}
-
 button,
 input,
 textarea {
@@ -82,8 +74,9 @@ button:hover {
 }
 
 input {
+  width: 95%;
   border: solid 2px #ade2ca;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 6px 10px;
   background: #f0f9f5;
   color: #666;

@@ -27,7 +27,7 @@ var app = new Vue({
 //      return this.notes[0]
     },
     notePreview() {
-      return this.selectedNote ? mock_marked(this.selectedNote.content) : ''
+      return this.selectedNote ? marked(this.selectedNote.content) : ''
     },
     addTitle() {
       const n = this.notes
@@ -49,6 +49,26 @@ var app = new Vue({
     }
   },
   methods: {
+    favoriteNote() {
+      this.selectedNote.favorite = !this.selectedNote.favorite
+      this.notes.sort(function(a, b) {
+        return parseInt(a.create_time) - parseInt(b.create_time)
+      })
+      this.notes.sort(function(a, b) {
+        var aTag = 1
+        var bTag = 1
+        if (a.favorite) aTag = 0
+        if (b.favorite) bTag = 0
+        return aTag - bTag
+      })
+    },
+    showFavoriteTitle() {
+      if (this.selectedNote.favorite) {
+        return 'un-favorite note'
+      } else {
+        return 'favorite note'
+      }
+    },
     saveSelectedId(newValue, oldValue){
       localStorage.setItem('sId', newValue)
     },
@@ -72,17 +92,29 @@ var app = new Vue({
     log(n, o) {
       console.log("change: new: '", n, "', old: '", o, "';")
     },
+    favoriteStar(note) {
+      return note.favorite ? 'star':'star_border'
+    },
+    rmNote() {
+      if(this.selectedId && confirm("delete current note?")){
+        const index = this.notes.indexOf(this.selectedNote)
+        if (index != -1) {
+          this.notes.splice(index, 1)
+        }
+      }
+    },
     addNote() {
       const time = Date.now()
       const note = {
         id: String(time),
         title: 'new note',
-        content: 'This is a new note!',
+        content: '## This is a new note!',
         create_time: String(time),
         last_modify_time: String(time),
         favorite: false,
       }
       this.notes.push(note)
+      this.selectedId = note.id
     },
   }
 })
