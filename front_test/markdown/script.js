@@ -9,7 +9,14 @@ function log(n) {
   console.log("here", n)
 }
 
-Vue.filter('date', time => moment(time).format('YY-MM-DD HH:mm:ss'))
+Vue.filter('date', time => String(time))//moment(time).format('YY-MM-DD HH:mm:ss'))
+
+// MyNote: data() then return a map-like object is equal to data: <a map-like object> in vue object
+var d = {
+      storedKey: 'note_content',
+      notes: [],
+      selectedId: null,
+}
 
 var app = new Vue({
   el: '#notebook_root',
