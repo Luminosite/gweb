@@ -15,5 +15,9 @@ var state = {
     {name: 'Anne'},
     {name: 'William'}
   ],
-  curPlayerIndex: Math.round(Math.random())
+  curPlayerIndex: Math.round(Math.random()),
+
+  handCards:[[], []],
+  left:[],
+  used:[]
 }
