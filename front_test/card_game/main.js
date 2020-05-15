@@ -29,14 +29,18 @@ var app = new Vue({
       for (let i=0; i< ids.length * n; i++) {
         this.left.push({
           uid: i,
-          def: cards[ids[i/n]]
+          def: cards[ids[parseInt(i/n)]]
         })
       }
 
+      console.log(cards[ids[9]])
+      this.handCards = []
       for (let k=0; k<2;k++) {
+        var curSet = []
         for (let j=0; j< handN; j++) {
-          this.handCards[k].push(this.left.splice(Math.round(Math.random() * this.left.length), 1))
+          curSet.push(this.left.splice(Math.floor(Math.random() * this.left.length), 1)[0])
         }
+        this.handCards.push(curSet)
       }
     }
   },
