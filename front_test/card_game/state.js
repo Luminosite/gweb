@@ -16,6 +16,9 @@ var state = {
     {name: 'William'}
   ],
   curPlayerIndex: Math.round(Math.random()),
+  testKeyInd: 0,
+
+  activeOverlay: null,
 
   handCards:[[], []],
   left:[],

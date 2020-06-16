@@ -3,23 +3,29 @@ var app = new Vue({
   name: 'game',
   el: '#app',
   data: state,
+  beforeCreate() {
+  },
   created() {
     this.initCards()
   },
   computed: {
     testDef() {
-      return cards.archers
+      return this.left[this.testKeyInd].def
     },
     testDefs() {
-      return [cards.archers]
+      return this.handCards[0]
     },
     dealCards() {
 
     }
   },
   methods: {
-    playCard(c, n) {
-      console.log("in main vue: " + c + ", " + n)
+    playMethodInMain(c, n) {
+      this.testKeyInd = (this.testKeyInd + 5) % this.left.length
+      console.log("in main vue: " + c + ", " + n + ", " + this.testKeyInd)
+    },
+    randomSelectOneCard() {
+      return this.left.splice(Math.floor(Math.random() * this.left.length), 1)[0]
     },
     initCards() {
       const ids = Object.keys(cards)
@@ -33,12 +39,11 @@ var app = new Vue({
         })
       }
 
-      console.log(cards[ids[9]])
       this.handCards = []
       for (let k=0; k<2;k++) {
         var curSet = []
         for (let j=0; j< handN; j++) {
-          curSet.push(this.left.splice(Math.floor(Math.random() * this.left.length), 1)[0])
+          curSet.push(this.randomSelectOneCard())
         }
         this.handCards.push(curSet)
       }
@@ -47,10 +52,12 @@ var app = new Vue({
   template: `
     <div id="#app">
       <top-bar :turn="turn" :cur-player-index="curPlayerIndex" :players="players"/>
-      <card :def="testDef" @play="playCard"/>
-      <hand :cards="testDefs" />
+      <transition name="fa">
+        <hand :cards="handCards[curPlayerIndex]" v-if="!activeOverlay" />
+      </transition>
     </div>
   `
 })
 
+//      <!-- <card :def="testDef" @playEvent="playMethodInMain"/> -->
 window.addEventListener('resize', () => {state.worldRatio = getWorldRatio()})

@@ -1,0 +1,11 @@
+
+.hand.fa-enter-active,
+.hand.fa-leave-active {
+    transition: opacity 1s;
+
+}
+
+.hand.fa-enter,
+.hand.fa-leave-to {
+    opacity: 0;
+}

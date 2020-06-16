@@ -15,19 +15,18 @@ Vue.component('top-bar', {
 Vue.component('card', {
   props: ['def'],
   beforeCreate() {
-    console.log("card template created")
-    this.$on('play', (c, n) => {
+    this.$on('playEvent', (c, n) => {
       console.log("catch in card component: " + c + ", " + n)
     })
   },
   methods: {
-    play(){
-      this.$emit('play', 'color:orange', 24)
+    playMethodInCard(){
+      this.$emit('playEvent', 'color:orange', 24)
     }
 
   },
   template: `
-    <div class="card" :class="'type-' + def.type" @click="play">
+    <div class="card" :class="'type-' + def.type" @click="playMethodInCard">
       <div class="title">{{def.title}}</div>
       <img class="separator" src="svg/card-separator.svg" />
       <div class="description"><div v-html="def.description"></div></div>
@@ -38,10 +37,18 @@ Vue.component('card', {
 
 Vue.component('hand', {
   props: ['cards'],
+  mounted(){
+//    console.log(this.cards)
+  },
+  methods: {
+    playMethodInHand(c, n) {
+      console.log("caught play event in hand: " + c + ", "+n)
+    }
+  },
   template:`
     <div class="hand">
       <div class="wrapper">
-        <div v-for="card in cards">{{card.id}}</div>
+        <card v-for="card in cards" :key="card.uid" :def="card.def" @playEvent="playMethodInHand"/>
       </div>
     </div>
   `
