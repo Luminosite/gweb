@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <style>
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+    </style>
+    <title>多边形的绘制和编辑</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值&plugin=AMap.PolyEditor"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<div class="input-card" style="width: 120px">
+   <button class="btn" onclick="polyEditor.open()" style="margin-bottom: 5px">开始编辑</button> 
+   <button class="btn" onclick="polyEditor.close()">结束编辑</button> 
+</div>
+<script type="text/javascript">
+
+    function qqMapTransBMap(lng, lat) {
+        let x_pi = 3.14159265358979324 * 3000.0 / 180.0;
+        let x = lng;
+        let y = lat;
+        let z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);
+        let theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * x_pi);
+        let lngs = z * Math.cos(theta) + 0.0065;
+        let lats = z * Math.sin(theta) + 0.006;
+        
+        return [lngs, lats] 
+    } 
+
+    function bMapTransQQMap(lng, lat) {
+      let x_pi = 3.14159265358979324 * 3000.0 / 180.0;
+      let x = lng - 0.0065;
+      let y = lat - 0.006;
+      let z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * x_pi);
+      let theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * x_pi);
+      let lngs = z * Math.cos(theta);
+      let lats = z * Math.sin(theta);
+      
+      return [lngs, lats]        
+    }
+    
+    function getPath(p){
+        result = []
+        if (p.indexOf('[') != -1){
+
+        } else {
+            points = p.split(';')
+            for(var i=0;i<points.length;i++){
+                var lonLatStr = points[i].split(',')
+                result.push(bMapTransQQMap(parseFloat(lonLatStr[0]), parseFloat(lonLatStr[1])))
+            }
+        }
+        return result
+    }
+
+    var origin_path = '121.35535899418774,31.1607689040196;121.35537710539808,31.160736567476768;121.35625850032166,31.159247166687315;121.3562796116611,31.159235768625607;121.35630473711473,31.159231292913997;121.35632483342049,31.159232911297902;121.35635195851947,31.159241394848248;121.3570550942562,31.159601978958392;121.35824829244382,31.160381223547716;121.3582633515141,31.160399935225826;121.35827438815456,31.160422722087766;121.35827537608787,31.160445698755364;121.35826530823644,31.160471883639403;121.35748757303351,31.16184233160913;121.35743527519246,31.16190731032047;121.35741215050857,31.161925745070196;121.3573819936506,31.1619413136591;121.3573598799794,31.16195073100159;121.35733676617278,31.16195316863203;121.3573086347104,31.16194570325347;121.35539102537113,31.160941262938863;121.35536491996778,31.16091176325827;121.3553498669,31.160884053873236;121.35534385927735,31.160854173609266;121.35534488298616,31.16082815941625;121.35534892427762,31.160798088891944;121.35535899418774,31.1607689040196'
+    
+    var path = getPath(origin_path)
+
+    function getCenter(p){
+        values = [0, 0]
+        for (var i =0;i<p.length;i++){
+            values[0] += p[i][0]
+            values[1] += p[i][1]
+        }
+        values[0] = values[0]/p.length
+        values[1] = values[1]/p.length
+        return values
+    }
+    var pCenter = getCenter(path)
+    console.log("center:", pCenter)
+    var map = new AMap.Map("container", {
+        center: pCenter,
+        zoom: 14
+    });
+
+    // var path = [
+    //     [116.403322, 39.920255],
+    //     [116.410703, 39.897555],
+    //     [116.402292, 39.892353],
+    //     [116.389846, 39.891365]
+    // ]
+
+    var polygon = new AMap.Polygon({
+        path: path,
+        strokeColor: "#FF33FF", 
+        strokeWeight: 6,
+        strokeOpacity: 0.2,
+        fillOpacity: 0.4,
+        fillColor: '#1791fc',
+        zIndex: 50,
+    })
+
+    map.add(polygon)
+    // 缩放地图到合适的视野级别
+    map.setFitView([ polygon ])
+
+    var polyEditor = new AMap.PolyEditor(map, polygon)
+
+    polyEditor.on('addnode', function(event) {
+        log.info('触发事件：addnode')
+    })
+
+    polyEditor.on('adjust', function(event) {
+        log.info('触发事件：adjust')
+    })
+
+    polyEditor.on('removenode', function(event) {
+        log.info('触发事件：removenode')
+    })
+
+    polyEditor.on('end', function(event) {
+        log.info('触发事件： end')
+        // event.target 即为编辑后的多边形对象
+    })
+</script>
+</body>
+</html>
