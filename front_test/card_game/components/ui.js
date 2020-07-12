@@ -15,13 +15,13 @@ Vue.component('top-bar', {
 Vue.component('card', {
   props: ['def'],
   beforeCreate() {
-    this.$on('playEvent', (c, n) => {
-      console.log("catch in card component: " + c + ", " + n)
-    })
+//    this.$on('playEvent', (c, n) => {
+//      console.log("catch in card component: " + c + ", " + n)
+//    })
   },
   methods: {
     playMethodInCard(){
-      this.$emit('playEvent', 'color:orange', 24)
+      this.$emit('playEvent')
     }
 
   },
@@ -41,14 +41,16 @@ Vue.component('hand', {
 //    console.log(this.cards)
   },
   methods: {
-    playMethodInHand(c, n) {
-      console.log("caught play event in hand: " + c + ", "+n)
+    play(c) {
+        this.$emit('handPlay', c)
     }
   },
   template:`
     <div class="hand">
       <div class="wrapper">
-        <card v-for="card in cards" :key="card.uid" :def="card.def" @playEvent="playMethodInHand"/>
+        <transition-group name="card" tag="div" class="cards">
+            <card v-for="card in cards" :key="card.uid" :def="card.def" @playEvent="play(card)"/>
+        </transition-group>
       </div>
     </div>
   `

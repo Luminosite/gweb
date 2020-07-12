@@ -47,13 +47,19 @@ var app = new Vue({
         }
         this.handCards.push(curSet)
       }
+    },
+    playACard(c) {
+        console.log("play a card:", c)
+        var index = this.handCards[this.curPlayerIndex].indexOf(c)
+        var deleted = this.handCards[this.curPlayerIndex].splice(index, 1)
+        console.log("remove a card from hand:", deleted)
     }
   },
   template: `
     <div id="#app">
       <top-bar :turn="turn" :cur-player-index="curPlayerIndex" :players="players"/>
       <transition name="fa">
-        <hand :cards="handCards[curPlayerIndex]" v-if="!activeOverlay" />
+        <hand :cards="handCards[curPlayerIndex]" v-if="!activeOverlay" @handPlay='playACard'/>
       </transition>
     </div>
   `

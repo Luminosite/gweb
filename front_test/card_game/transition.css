@@ -1,11 +1,51 @@
-
-.hand.fa-enter-active,
-.hand.fa-leave-active {
+/*
+*/
+.fa-enter-active,
+.fa-leave-active {
     transition: opacity 1s;
-
 }
 
-.hand.fa-enter,
-.hand.fa-leave-to {
+.fa-enter,
+.fa-leave-to {
     opacity: 0;
+}
+
+.fa-enter-active .wrapper,
+.fa-leave-active .wrapper {
+    transition: transform 1.5s cubic-bezier(0.08, .74, .34, 1);
+    transform-origin: bottom center;
+}
+
+.fa-enter .wrapper,
+.fa-leave-to .wrapper {
+    transform: rotate(90deg);
+}
+
+.fa-enter-active .card,
+.fa-leave-active .card {
+    transition: margin 2s cubic-bezier(0.08, .74, .34, 1);
+}
+
+.fa-enter .card,
+.fa-leave-to .card {
+    margin: 0 -100px;
+}
+
+/*
+.card-enter-active,
+.card-leave-active {
+    transition: opacity 2s;
+}
+
+.card-enter,
+.card-leave-to {
+    opacity: 0;
+}
+*/
+
+.card-move {
+    transition: transform .3s;
+}
+.card-leave-active {
+    position: absolute;
 }

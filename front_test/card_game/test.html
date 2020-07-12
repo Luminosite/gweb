@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="vue.js"></script>
+  <style>
+        li{
+            border: 1px dashed red;
+            margin: 5px;
+            line-height: 38px;
+            padding-left: 10px;
+            width: 100%;/*配合    .v-leave-active{    使用  要不然移除动画的时候宽度变小
+                                        position: absolute;
+                                    }*/
+        }
+
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateY(80px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.6s ease;
+        }
+
+
+        /*两个搭配使用，能够实现后续列表渐渐飘上来的效果*/
+        .v-move{
+            transition: all 0.6s ease;
+        }
+        .v-leave-active{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+  <label>
+    id:
+    <input type="text" v-model="id">
+  </label>
+  <label>
+    name:
+    <input type="text" v-model="name">
+  </label>
+  <input type="button" value="添加" @click="add">
+  <!--<ul>-->
+  <!--
+      appear属性    整个li做入场动画
+      tag不写默认为span元素  添加即为指定元素
+  -->
+  <transition-group appear tag="ul">
+    <li v-for="(item,i) in list" :key="item.id" @click="del(i)">{{item.id}}--{{item.name}}</li>
+  </transition-group>
+  <!--
+      如果需要过滤的元素是通过v-for循环渲染出来,不能使用transition包裹,需要使用transition-group
+      如果要为v-for循环创建元素设置动画，必须为每一个元素设置：key属性
+  -->
+  <!--</ul>-->
+</div>
+<script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                id:"",
+                name:"",
+                list:[
+                    {
+                        id:1,
+                        name:"中国馆"
+                    },
+                    {
+                        id:2,
+                        name:"蒙古国"
+                    }
+                ]
+            },
+            methods:{
+                add(){
+                    this.list.push({id:this.id,name:this.name})
+                    this.id=this.name=""
+                },
+                del(i){
+                    this.list.splice(i,1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
