@@ -90,9 +90,9 @@ function checkStatsBounds (player) {
 }
 
 function checkPlayerLost (player) {
-  player.dead = (player.health === 0 || player.food === 0)
+  player.defeated = (player.health === 0 || player.food === 0)
 }
 
 function isOnePlayerDead () {
-  return state.players.some(p => p.dead)
+  return state.players.some(p => p.defeated)
 }
