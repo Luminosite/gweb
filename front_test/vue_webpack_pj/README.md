@@ -1,6 +1,6 @@
-# demo
+# vue_webpack_pj
 
-> Trying Vue.js!!!
+> A Vue.js project
 
 ## Build Setup
 

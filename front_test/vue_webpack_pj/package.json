@@ -1,8 +1,8 @@
 {
-  "name": "demo",
-  "description": "Trying Vue.js!!!",
+  "name": "vue_webpack_pj",
+  "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "luminosite@163.com",
+  "author": "kunfu <kunfu@paypal.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
